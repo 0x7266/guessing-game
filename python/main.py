@@ -2,10 +2,9 @@ import random
 
 
 class Game:
-    def __init__(self) -> None:
-        self.game_over = False
-        self.score = 10
-        self.target = random.randint(1, 10)
+    game_over = False
+    score = 10
+    target = random.randint(1, 10)
 
     def guess(self, number: int):
         self.score -= 1

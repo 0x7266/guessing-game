@@ -26,7 +26,11 @@ class Game:
             self.win()
             self.game_over = True
             return
+<<<<<<< HEAD
         self.check_already_tried(number)
+=======
+        self.score -= 1
+>>>>>>> 19077a60416343ebdbf45474105a27b608a49f75
         print("\nWRONG!")
         print(f"Score: {self.score}\n")
         self.print_already_tried()
@@ -35,6 +39,7 @@ class Game:
             self.game_over = True
             return
 
+<<<<<<< HEAD
     def check_already_tried(self, number):
         if number in self.already_tried:
             print("You've already tried this number")
@@ -47,6 +52,16 @@ class Game:
 
     def win(self):
         print("\nCORRECT!")
+=======
+    def start(self):
+        print(self.target)
+        print(f"Initial score: {self.score}")
+        while not self.game_over:
+            self.guess(int(input("Pick a number between 1 and 10\n")))
+
+    def win(self):
+        print("\nCORRECT")
+>>>>>>> 19077a60416343ebdbf45474105a27b608a49f75
         print(f"Final score: {self.score}\n")
         print("You win\n\n")
 

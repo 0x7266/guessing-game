@@ -26,14 +26,24 @@ class Game:
             self.win()
             self.game_over = True
             return
-        self.check_already_tried(number)
-        print("\nWRONG!")
-        print(f"Score: {self.score}\n")
-        self.print_already_tried()
+        if self.check_guess_in_range(number):
+            self.check_already_tried(number)
+            print("\nWRONG!")
+            print(f"Score: {self.score}\n")
+            self.print_already_tried()
         if self.score == 0:
             self.lose()
             self.game_over = True
             return
+
+    def check_guess_in_range(self, number):
+        if number not in range(self.lower_bound, self.upper_bound + 1):
+            print(
+                """Not a valid number
+Please enter a number between 1 and 10"""
+            )
+            return False
+        return True
 
     def check_already_tried(self, number):
         if number in self.already_tried:

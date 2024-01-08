@@ -9,9 +9,46 @@ class Game:
     score = 10
     target = random.randint(lower_bound, upper_bound)
 
+    def get_level_input(self):
+        level = input(
+            f"""
+Please choose a level
+
+{' - ' * 3}
+| EASY   |
+| MEDIUM |
+| HARD   |
+| LEGEND |
+{' - ' * 3}
+
+"""
+        )
+        self.level = level
+
+    def validate_input(self, input_type):
+        match input_type:
+            case "level":
+                if self.level.lower() not in ("easy", "medium", "hard", "legend"):
+                    print("Invalid level!")
+                    self.get_level_input()
+                    self.validate_input("level")
+                else:
+                    print(f"LEVEL: {self.level.upper()}")
+            case "guess":
+                pass
+
     def start(self):
         print(self.target)
-        print(f"Initial score: {self.score}")
+
+        self.get_level_input()
+        self.validate_input("level")
+        print(
+            f"""
+
+Initial score: {self.score}
+
+"""
+        )
         while not self.game_over:
             self.guess(
                 int(

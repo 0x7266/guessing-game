@@ -4,7 +4,7 @@ import random
 class Game:
     already_tried = []
     game_over = False
-    lower_bound = 0
+    lower_bound = 1
     upper_bound = 10
     score = 10
     target = random.randint(lower_bound, upper_bound)

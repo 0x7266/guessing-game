@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+target=$((RANDOM % 100 + 1))
+attempts=0
+
+echo "NUMBER GUESSING GAME"
+
+while true; do
+  read -p "Enter a number: " guess
+  attempts=$((attempts + 1))
+  if [[ ! $guess =~ ^[0-9]+$ ]]; then
+    echo "Enter a valid number!"
+    continue
+  fi
+  if ((guess < target)); then
+    echo "IT'S MORE"
+  elif ((guess > target)); then
+    echo "IT'S LESS"
+  else
+    echo "Congratulations! You guessed the number $random_number in $attempts attempts!"
+    break
+  fi
+done
